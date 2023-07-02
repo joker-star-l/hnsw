@@ -24,7 +24,7 @@ data class HNSWIndex(
     var efConstruction: Int = 200, // 需要搜索的近邻数，仅在插入时起作用
     val removeEnabled: Boolean = false, // 是否允许删除
     val lookup: MutableMap<String, Int> = HashMap(), // id 到节点数组下标的映射
-    val deletedItemVersions: MutableMap<String, Long> = HashMap(), // 已删除删除节点 id 到版本号的映射
+    val deletedItemVersions: MutableMap<String, Long> = HashMap(), // 已删除节点 id 到版本号的映射
     ) : Index {
     val nodes: AtomicReferenceArray<Node> = AtomicReferenceArray(maxItemCount) // 节点数组
     var nodeCount: Int = 0 // 节点数量
